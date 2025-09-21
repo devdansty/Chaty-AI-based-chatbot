@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./App.css"; // custom styles
+import "./App.css";
 
 export default function App() {
   const [messages, setMessages] = useState([
@@ -8,7 +8,6 @@ export default function App() {
   ]);
   const [input, setInput] = useState("");
 
-  // Send message to backend
   const sendMessage = async () => {
     if (!input.trim()) return;
 
@@ -29,7 +28,6 @@ export default function App() {
     setInput("");
   };
 
-  // Delete task (via backend)
   const deleteTask = async (task) => {
     try {
       const res = await axios.post("http://localhost:5000/chat", {
@@ -44,7 +42,6 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* Left Panel (Tasks) */}
       <div className="tasks-panel">
         <div className="tasks-header">Tasks</div>
         <div className="tasks-list">
@@ -75,7 +72,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* Right Panel (Chat) */}
       <div className="chat-panel">
         <div className="chat-header">
           <h1>Chaty</h1>
